@@ -1,18 +1,15 @@
 [versions]
 agp = "8.1.1"
-
 coil = "2.4.0"
-
 kotlin = "1.9.0"
 kotlin-coroutines = "1.7.3"
-
-core-ktx = "1.12.0"
+core-ktx = "1.10.1"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
-activity-compose = "1.9.1"
+activity-compose = "1.9.2"
 compose-bom = "2023.09.00"
-compose-lifecycle = "2.7.0-alpha02"
+compose-lifecycle = "2.7.0-alpha03"
 hilt = "2.48"
 ksp = "1.9.0-1.0.13"
 androidxComposeCompiler = "1.5.0"
@@ -20,6 +17,12 @@ retrofit = "2.9.0"
 room = "2.5.2"
 okhttp = "4.11.0"
 moshi = "1.15.0"
+lifecycle-runtime-ktx = "2.6.1"
+material3 = "1.2.0-alpha09"
+koin_version = "3.4.3"
+nav_version = "2.7.3"
+work_version = "2.8.1"
+paging_version = "3.2.1"
 
 androidx-test-espresso-espresso-core = "3.5.1"
 timber = "5.0.1"
@@ -61,7 +64,7 @@ compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 
 compose-destinations-animations-core = { group = "io.github.raamcosta.compose-destinations", name = "animations-core", version.ref = "composeDestinationsVersion" }
 compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
-compose-navigation = { module = "androidx.navigation:navigation-compose", version = "2.7.7" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "nav_version" } # Updated to latest
 compose-destinations-ksp = { group = "io.github.raamcosta.compose-destinations", name = "ksp", version.ref = "composeDestinationsVersion" }
 
 compose-destinations-core = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "composeDestinationsVersion" }
@@ -86,7 +89,7 @@ hilt-ksp = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version = "1.0.0" }
 
 kotlin-testing-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.7.3" }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test-junit", version = "1.9.0" }
+kotlin-test = { module = "org.jetbrains.kotlinx:kotlin-test-junit", version = "1.9.0" }
 
 splash-screen = { module = "androidx.core:core-splashscreen", version = "1.0.1" }
 
@@ -122,4 +125,3 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.3.1" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-
