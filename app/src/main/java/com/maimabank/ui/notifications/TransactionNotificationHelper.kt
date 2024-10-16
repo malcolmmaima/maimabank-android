@@ -14,12 +14,12 @@ import com.maimabank.common.models.accounts.MoneyAmount
 import com.maimabank.common.models.transactions.TransactionType
 import com.maimabank.core.design.theme.Blue100
 import com.maimabank.ui.MainActivity
+import com.maimabank.utils.R as RR
 import com.maimabank.utils.extensions.maskCardId
 import com.maimabank.utils.helpers.errors.ErrorType
 import com.maimabank.utils.helpers.errors.asUiTextError
 import com.maimabank.utils.helpers.notification.MoneyAmountUi
 import com.maimabank.utils.helpers.notification.NotificationUi
-import com.maimabank.utils.R as RR
 
 class TransactionNotificationHelper(
     private val applicationContext: Context
@@ -27,27 +27,30 @@ class TransactionNotificationHelper(
     fun successMessage(
         transactionType: TransactionType,
         amount: MoneyAmount,
-        cardId: String,
+        cardId: String
     ): NotificationUi {
         return when (transactionType) {
             TransactionType.SEND -> {
                 NotificationUi(
                     title = "Transaction confirmed!",
-                    message = "You've sent ${MoneyAmountUi.mapFromDomain(amount).amountStr} from ${cardId.maskCardId()}",
+                    message = "You've sent ${
+                    MoneyAmountUi.mapFromDomain(amount).amountStr} from ${cardId.maskCardId()}"
                 )
             }
 
             TransactionType.RECEIVE -> {
                 NotificationUi(
                     title = "New incoming transaction!",
-                    message = "You've received ${MoneyAmountUi.mapFromDomain(amount).amountStr} on ${cardId.maskCardId()}",
+                    message = "You've received ${
+                    MoneyAmountUi.mapFromDomain(amount).amountStr} on ${cardId.maskCardId()}"
                 )
             }
 
             TransactionType.TOP_UP -> {
                 NotificationUi(
                     title = "Top up successful!",
-                    message = "You've received ${MoneyAmountUi.mapFromDomain(amount).amountStr} on ${cardId.maskCardId()}",
+                    message = "You've received ${
+                    MoneyAmountUi.mapFromDomain(amount).amountStr} on ${cardId.maskCardId()}"
                 )
             }
         }
@@ -75,7 +78,12 @@ class TransactionNotificationHelper(
         val notificationIntent = Intent(applicationContext, MainActivity::class.java)
         val mutabilityFlag = PendingIntent.FLAG_IMMUTABLE
 
-        val pendingIntent = PendingIntent.getActivity(applicationContext, 0, notificationIntent, mutabilityFlag)
+        val pendingIntent = PendingIntent.getActivity(
+            applicationContext,
+            0,
+            notificationIntent,
+            mutabilityFlag
+        )
 
         return NotificationCompat.Builder(
             applicationContext,
@@ -83,7 +91,7 @@ class TransactionNotificationHelper(
         )
             .setContentTitle(notificationUi.title)
             .setContentText(notificationUi.message)
-            //.setSmallIcon(R.drawable.ic_logo_vector)
+            // .setSmallIcon(R.drawable.ic_logo_vector)
             .setColor(Blue100.toArgb())
             .setContentIntent(pendingIntent)
             .build()

@@ -10,5 +10,5 @@ data class Transaction(
     val linkedContact: Contact?,
     val recentStatus: TransactionStatus,
     val createdDate: Long,
-    val updatedStatusDate: Long,
+    val updatedStatusDate: Long
 )

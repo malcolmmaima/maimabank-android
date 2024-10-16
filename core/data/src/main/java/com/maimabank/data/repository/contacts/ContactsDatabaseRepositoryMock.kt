@@ -5,7 +5,7 @@ import com.maimabank.utils.helpers.errors.AppError
 import com.maimabank.utils.helpers.errors.ErrorType
 import kotlinx.coroutines.delay
 
-class ContactsDatabaseRepositoryMock: ContactsRepository {
+class ContactsDatabaseRepositoryMock : ContactsRepository {
     override suspend fun getContacts(): List<Contact> {
         delay(MOCK_DELAY)
 
@@ -27,7 +27,7 @@ class ContactsDatabaseRepositoryMock: ContactsRepository {
                 name = "Andi Taher",
                 profilePic = "https://api.dicebear.com/7.x/personas/svg?seed=dsf42332",
                 linkedCardNumber = "4444333322221111"
-            ),
+            )
         )
     }
 

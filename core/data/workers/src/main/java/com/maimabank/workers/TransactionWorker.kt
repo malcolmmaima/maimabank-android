@@ -8,12 +8,12 @@ import androidx.work.WorkerParameters
 import com.maimabank.common.models.transactions.TransactionStatus
 import com.maimabank.common.models.transactions.TransactionType
 import com.maimabank.data.repository.accounts.AccountRepository
-import com.maimabank.database.entities.TransactionEntity
 import com.maimabank.database.dao.TransactionDao
+import com.maimabank.database.entities.TransactionEntity
+import com.maimabank.networking.util.OperationResult
 import com.maimabank.ui.notifications.TransactionNotificationHelper
 import com.maimabank.utils.helpers.errors.AppError
 import com.maimabank.utils.helpers.errors.ErrorType
-import com.maimabank.networking.util.OperationResult
 import kotlinx.coroutines.delay
 
 class TransactionWorker(
@@ -30,7 +30,7 @@ class TransactionWorker(
     }
 
     override suspend fun doWork(): Result {
-      try {
+        try {
             val transactionId = inputData.getLong(TRANSACTION_ID_KEY, -1)
             Log.d("WORKER_TAG", "Run transaction operation for transaction: $transactionId")
 
@@ -38,7 +38,8 @@ class TransactionWorker(
                 delay(MOCK_TRANSACTION_DELAY)
 
                 val transaction = transactionDao.getTransaction(transactionId) ?: throw AppError(
-                    ErrorType.TRANSACTION_NOT_FOUND)
+                    ErrorType.TRANSACTION_NOT_FOUND
+                )
                 val transactionResult = executeTransaction(transaction = transaction)
 
                 return when (transactionResult) {
@@ -92,7 +93,9 @@ class TransactionWorker(
                     accountRepository.sendFromCard(
                         cardId = transaction.cardId,
                         amount = transaction.value,
-                        contactId = transaction.linkedContactId ?: error("No contact id in SEND transaction ${transaction.id}")
+                        contactId = transaction.linkedContactId ?: error(
+                            "No contact id in SEND transaction ${transaction.id}"
+                        )
                     )
                 }
             }

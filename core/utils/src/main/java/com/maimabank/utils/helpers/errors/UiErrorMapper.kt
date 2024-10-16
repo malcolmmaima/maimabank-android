@@ -8,7 +8,9 @@ fun ErrorType.asUiTextError(): UiText {
         ErrorType.WRONG_PASSWORD -> UiText.StringResource(R.string.wrong_password)
 
         ErrorType.FIELD_IS_EMPTY -> UiText.StringResource(R.string.field_is_empty)
-        ErrorType.GENERIC_VALIDATION_ERROR -> UiText.StringResource(R.string.generic_validation_error)
+        ErrorType.GENERIC_VALIDATION_ERROR -> UiText.StringResource(
+            R.string.generic_validation_error
+        )
 
         ErrorType.INVALID_CARD_NUMBER -> UiText.StringResource(R.string.invalid_card_number)
         ErrorType.CARD_EXPIRED -> UiText.StringResource(R.string.card_has_expired)
@@ -17,7 +19,9 @@ fun ErrorType.asUiTextError(): UiText {
         ErrorType.CARD_NOT_FOUND -> UiText.StringResource(R.string.card_not_found)
         ErrorType.CARD_HAS_BEEN_DELETED -> UiText.DynamicString("Card has been deleted")
         ErrorType.CARD_ALREADY_ADDED -> UiText.StringResource(R.string.card_already_added)
-        ErrorType.INSUFFICIENT_CARD_BALANCE -> UiText.StringResource(R.string.insufficient_card_balance)
+        ErrorType.INSUFFICIENT_CARD_BALANCE -> UiText.StringResource(
+            R.string.insufficient_card_balance
+        )
 
         ErrorType.TRANSACTION_NOT_FOUND -> UiText.StringResource(R.string.transaction_not_found)
 

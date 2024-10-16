@@ -15,18 +15,18 @@ class LoginRepositoryMock(
     private val securedPrefs: SharedPreferences
 ) : LoginRepository {
 
-    override suspend fun loginWithEmail(email: String, password: String) = withContext(coroutineDispatcher) {
+    override suspend fun loginWithEmail(email: String, password: String) = withContext(
+        coroutineDispatcher
+    ) {
         delay(MOCK_DELAY)
 
         // TODO login attempts
         if (email == MOCK_LOGIN_EMAIL && password == MOCK_PASSWORD) {
             prefs.push(PrefKeys.IS_LOGGED_IN.name, true)
             return@withContext
-        }
-        else if (email != MOCK_LOGIN_EMAIL) {
+        } else if (email != MOCK_LOGIN_EMAIL) {
             throw AppError(ErrorType.USER_NOT_FOUND)
-        }
-        else {
+        } else {
             throw AppError(ErrorType.WRONG_PASSWORD)
         }
     }

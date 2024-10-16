@@ -10,11 +10,12 @@ import com.maimabank.database.entities.UserEntity
 
 @Database(
     version = 1,
-    entities = [UserEntity::class,
-               CardEntity::class,
-               TransactionEntity::class],
+    entities = [
+        UserEntity::class,
+        CardEntity::class,
+        TransactionEntity::class
+    ],
     exportSchema = false
 )
 @TypeConverters(MoneyAmountConvertor::class)
-abstract class MaimaBankDatabase : RoomDatabase() {
-}
+abstract class MaimaBankDatabase : RoomDatabase()

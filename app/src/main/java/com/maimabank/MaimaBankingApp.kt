@@ -4,15 +4,15 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
+import com.maimabank.utils.R
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
-import com.maimabank.utils.R
 
 @HiltAndroidApp
 class MaimaBankingApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        if (BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
         setupNotifications()

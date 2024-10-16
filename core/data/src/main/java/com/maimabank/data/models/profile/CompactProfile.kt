@@ -7,5 +7,5 @@ data class CompactProfile(
     val nickName: String,
     val email: String,
     val profilePicUrl: String,
-    val tier: ProfileTier,
+    val tier: ProfileTier
 )

@@ -11,6 +11,7 @@ enum class ErrorType {
     DATE_UNSPECIFIED,
     CARD_NOT_FOUND,
     CARD_ALREADY_ADDED,
+
     // Throw this when card is missing during operation, e.g. while flow collecting
     CARD_HAS_BEEN_DELETED,
     INVALID_PASSWORD_FIELD,
@@ -21,7 +22,7 @@ enum class ErrorType {
     GENERIC_NOT_FOUND_ERROR,
     INSUFFICIENT_CARD_BALANCE,
 
-    UNKNOWN_ERROR,;
+    UNKNOWN_ERROR ;
 
     companion object {
         fun fromThrowable(e: Throwable): ErrorType {

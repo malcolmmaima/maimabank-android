@@ -15,8 +15,15 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions ORDER BY id DESC LIMIT :loadSize OFFSET :startPosition")
     suspend fun getTransactionList(startPosition: Int, loadSize: Int): List<TransactionEntity>
 
-    @Query("SELECT * FROM transactions WHERE type = :filterType ORDER BY id DESC LIMIT :loadSize OFFSET :startPosition")
-    suspend fun getTransactionList(filterType: TransactionType, startPosition: Int, loadSize: Int): List<TransactionEntity>
+    @Query(
+        "SELECT * FROM transactions " +
+            "WHERE type = :filterType ORDER BY id DESC LIMIT :loadSize OFFSET :startPosition"
+    )
+    suspend fun getTransactionList(
+        filterType: TransactionType,
+        startPosition: Int,
+        loadSize: Int
+    ): List<TransactionEntity>
 
     @Insert
     suspend fun addTransaction(transactionEntity: TransactionEntity): Long

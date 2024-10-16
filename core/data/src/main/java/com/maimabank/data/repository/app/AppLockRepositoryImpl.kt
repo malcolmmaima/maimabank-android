@@ -10,7 +10,7 @@ import com.maimabank.data.repository.app.biometrics.BiometricsHelper
 
 class AppLockRepositoryImpl(
     private val securedPreferences: SharedPreferences,
-    private val context: Context,
+    private val context: Context
 ) : AppLockRepository {
 
     override fun setupAppLock(pinCode: String) {
@@ -56,8 +56,8 @@ class AppLockRepositoryImpl(
     }
 
     override fun checkIfAppLocked(): Boolean {
-        return securedPreferences.getString(PIN_SALT_KEY, null) != null
-                && securedPreferences.getString(PIN_KEY, null) != null
+        return securedPreferences.getString(PIN_SALT_KEY, null) != null &&
+            securedPreferences.getString(PIN_KEY, null) != null
     }
 
     override fun setupLockWithBiometrics(isLocked: Boolean) {

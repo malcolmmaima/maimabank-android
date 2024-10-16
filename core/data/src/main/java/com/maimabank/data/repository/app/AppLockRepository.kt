@@ -1,7 +1,7 @@
 package com.maimabank.data.repository.app
 
-import com.maimabank.data.models.app.BiometricsAvailability
 import com.maimabank.data.models.app.AuthenticationResult
+import com.maimabank.data.models.app.BiometricsAvailability
 
 interface AppLockRepository {
     fun setupAppLock(pinCode: String)

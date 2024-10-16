@@ -6,9 +6,9 @@ import com.maimabank.data.models.otp.OtpVerificationResponse
 import com.maimabank.data.models.signup.SignUpPayload
 import com.maimabank.data.repository.app.PrefKeys
 import com.maimabank.data.repository.otp.OtpRepository
+import com.maimabank.networking.util.OperationResult
 import com.maimabank.utils.helpers.errors.AppError
 import com.maimabank.utils.helpers.errors.ErrorType
-import com.maimabank.networking.util.OperationResult
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

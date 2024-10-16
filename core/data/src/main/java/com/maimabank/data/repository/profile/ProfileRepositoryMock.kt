@@ -19,7 +19,7 @@ class ProfileRepositoryMock(
             nickName = "@malcolmmaima",
             email = "test@example.com",
             profilePicUrl = "https://api.dicebear.com/7.x/open-peeps/svg?seed=Bailey",
-            tier = ProfileTier.BASIC,
+            tier = ProfileTier.BASIC
         )
     }
 

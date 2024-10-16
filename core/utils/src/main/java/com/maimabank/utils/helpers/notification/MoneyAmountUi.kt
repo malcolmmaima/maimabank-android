@@ -7,7 +7,7 @@ import java.text.DecimalFormatSymbols
 import java.util.Locale
 
 data class MoneyAmountUi(
-    val amountStr: String,
+    val amountStr: String
 ) {
     companion object {
         fun mapFromDomain(balance: MoneyAmount): MoneyAmountUi {
@@ -15,7 +15,6 @@ data class MoneyAmountUi(
             val decimalFormat = DecimalFormat("#,##0.##", symbols)
             decimalFormat.isGroupingUsed = false
             val formattedValue = decimalFormat.format(balance.value)
-
 
             // Add currency prefixes
             return when (balance.currency) {

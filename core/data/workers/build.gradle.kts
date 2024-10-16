@@ -7,7 +7,6 @@ plugins {
 
 android {
     namespace = "com.maimabank.data.workers"
-
 }
 
 dependencies {

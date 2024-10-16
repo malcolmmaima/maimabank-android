@@ -1,16 +1,9 @@
 package com.maimabank.data.di
 
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.Dispatchers
-import javax.inject.Singleton
 import android.app.Application
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import androidx.work.WorkManager
 import com.cioccarellia.ksprefs.KsPrefs
 import com.maimabank.data.repository.accounts.AccountRepository
 import com.maimabank.data.repository.accounts.AccountRepositoryMock
@@ -32,14 +25,21 @@ import com.maimabank.data.repository.savings.SavingsRepositoryMock
 import com.maimabank.data.repository.signup.SignUpRepository
 import com.maimabank.data.repository.signup.SignUpRepositoryMock
 import com.maimabank.database.dao.CardsDao
-import com.maimabank.database.dao.TransactionDao
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+import kotlinx.coroutines.Dispatchers
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DataModule {
     @Provides
     @Singleton
-    fun provideAppSettingsRepository(appRepositoryImpl: AppRepositoryImpl): AppSettignsRepository {
+    fun provideAppSettingsRepository(
+        appRepositoryImpl: AppRepositoryImpl
+    ): AppSettignsRepository {
         return appRepositoryImpl
     }
 
@@ -51,7 +51,10 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideSignUpRepository(otpRepository: OtpRepository, prefs: KsPrefs): SignUpRepository {
+    fun provideSignUpRepository(
+        otpRepository: OtpRepository,
+        prefs: KsPrefs
+    ): SignUpRepository {
         return SignUpRepositoryMock(
             coroutineDispatcher = Dispatchers.IO,
             otpRepository = otpRepository,
@@ -61,7 +64,10 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideLoginRepository(prefs: KsPrefs, securedPrefs: EncryptedSharedPreferences): LoginRepository {
+    fun provideLoginRepository(
+        prefs: KsPrefs,
+        securedPrefs: EncryptedSharedPreferences
+    ): LoginRepository {
         return LoginRepositoryMock(
             coroutineDispatcher = Dispatchers.IO,
             prefs = prefs,
@@ -86,7 +92,10 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideSavingsRepository(cardsRepository: CardsRepository, application: Application): SavingsRepository {
+    fun provideSavingsRepository(
+        cardsRepository: CardsRepository,
+        application: Application
+    ): SavingsRepository {
         return SavingsRepositoryMock(
             coroutineDispatcher = Dispatchers.IO,
             context = application.applicationContext,
@@ -104,7 +113,9 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideEncryptedSharedPreferences(application: Application): SharedPreferences {
+    fun provideEncryptedSharedPreferences(
+        application: Application
+    ): SharedPreferences {
         val context = application.applicationContext
 
         val masterKey: MasterKey = MasterKey.Builder(context)
@@ -122,7 +133,10 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideAppLockRepository(securedPreferences: EncryptedSharedPreferences, application: Application): AppLockRepository {
+    fun provideAppLockRepository(
+        securedPreferences: EncryptedSharedPreferences,
+        application: Application
+    ): AppLockRepository {
         return AppLockRepositoryImpl(
             securedPreferences = securedPreferences,
             context = application.applicationContext
@@ -134,7 +148,7 @@ object DataModule {
     fun provideAccountRepository(cardsDao: CardsDao): AccountRepository {
         return AccountRepositoryMock(
             coroutineDispatcher = Dispatchers.IO,
-            cardsDao = cardsDao,
+            cardsDao = cardsDao
         )
     }
 

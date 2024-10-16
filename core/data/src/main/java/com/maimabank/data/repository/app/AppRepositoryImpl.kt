@@ -14,12 +14,12 @@ class AppRepositoryImpl(
     }
 
     override fun isAppPermissionAlreadyAsked(permission: String): Boolean {
-        val key = "${PrefKeys.PERMISSION_ASKED_FLAG_PREFIX}_${permission}"
+        val key = "${PrefKeys.PERMISSION_ASKED_FLAG_PREFIX}_$permission"
         return prefs.pull(key, false)
     }
 
     override fun setPermissionAsked(permission: String, isAsked: Boolean) {
-        val key = "${PrefKeys.PERMISSION_ASKED_FLAG_PREFIX}_${permission}"
+        val key = "${PrefKeys.PERMISSION_ASKED_FLAG_PREFIX}_$permission"
         prefs.push(key, true)
     }
 }

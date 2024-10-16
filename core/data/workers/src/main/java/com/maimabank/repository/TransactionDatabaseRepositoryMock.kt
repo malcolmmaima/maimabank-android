@@ -15,20 +15,20 @@ import com.maimabank.common.models.transactions.Transaction
 import com.maimabank.common.models.transactions.TransactionRowPayload
 import com.maimabank.common.models.transactions.TransactionStatus
 import com.maimabank.common.models.transactions.TransactionType
-import com.maimabank.database.entities.TransactionEntity
 import com.maimabank.data.repository.contacts.ContactsRepository
 import com.maimabank.data.repository.transactions.TransactionRepository
 import com.maimabank.data.repository.transactions.TransactionSource
-import com.maimabank.workers.TransactionWorker
 import com.maimabank.database.dao.TransactionDao
+import com.maimabank.database.entities.TransactionEntity
 import com.maimabank.utils.helpers.errors.AppError
 import com.maimabank.utils.helpers.errors.ErrorType
+import com.maimabank.workers.TransactionWorker
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 
 class TransactionDatabaseRepositoryMock(
     private val workManager: WorkManager,
@@ -36,7 +36,9 @@ class TransactionDatabaseRepositoryMock(
     private val coroutineDispatcher: CoroutineDispatcher,
     private val contactsRepository: ContactsRepository
 ) : TransactionRepository {
-    override suspend fun getTransactions(filterByType: TransactionType?): Flow<PagingData<Transaction>> {
+    override suspend fun getTransactions(
+        filterByType: TransactionType?
+    ): Flow<PagingData<Transaction>> {
         val contacts = contactsRepository.getContacts()
 
         return Pager(
@@ -62,7 +64,9 @@ class TransactionDatabaseRepositoryMock(
         return flow {
             // Emit last cached status
             while (true) {
-                val tx = transactionDao.getTransaction(transactionId) ?: throw AppError(ErrorType.TRANSACTION_NOT_FOUND)
+                val tx = transactionDao.getTransaction(transactionId) ?: throw AppError(
+                    ErrorType.TRANSACTION_NOT_FOUND
+                )
                 emit(tx.recentStatus)
 
                 delay(MOCK_TRANSACTION_STATUS_CHECK_DELAY)
@@ -112,7 +116,13 @@ class TransactionDatabaseRepositoryMock(
             recentStatus = entity.recentStatus,
             linkedContact = when (entity.type) {
                 TransactionType.TOP_UP -> null
-                else -> entity.linkedContactId?.let { id -> contacts.find { contact -> contact.id == id } }
+                else -> entity.linkedContactId?.let {
+                        id ->
+                    contacts.find {
+                            contact ->
+                        contact.id == id
+                    }
+                }
             },
             createdDate = entity.createdDate,
             updatedStatusDate = entity.updatedStatusDate

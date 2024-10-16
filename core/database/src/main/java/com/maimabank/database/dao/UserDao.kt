@@ -1,11 +1,11 @@
 package com.maimabank.database.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import androidx.room.Delete
 import com.maimabank.database.entities.UserEntity
 
 @Dao

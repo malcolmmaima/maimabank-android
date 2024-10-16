@@ -1,4 +1,3 @@
 package com.maimabank.ui
 
-class MainActivity {
-}
+class MainActivity

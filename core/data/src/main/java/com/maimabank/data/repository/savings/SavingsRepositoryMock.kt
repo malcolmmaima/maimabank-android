@@ -23,7 +23,7 @@ class SavingsRepositoryMock(
                 title = "Buy Playstation",
                 description = "Slim 1 TB 56 Games",
                 completedPercentage = 0.7f,
-                iconUrl = getMockImageUrl( "ic_playstation"),
+                iconUrl = getMockImageUrl("ic_playstation"),
                 linkedCardId = mockLinkedCard
             ),
             Saving(
@@ -31,7 +31,7 @@ class SavingsRepositoryMock(
                 title = "Buy Car Remote",
                 description = "Mercedez Benz 001",
                 completedPercentage = 0.8f,
-                iconUrl = getMockImageUrl( "ic_car"),
+                iconUrl = getMockImageUrl("ic_car"),
                 linkedCardId = mockLinkedCard
             ),
             Saving(
@@ -39,7 +39,7 @@ class SavingsRepositoryMock(
                 title = "Buy Bicycle",
                 description = "Mountain bike R7",
                 completedPercentage = 0.6f,
-                iconUrl = getMockImageUrl( "ic_bike"),
+                iconUrl = getMockImageUrl("ic_bike"),
                 linkedCardId = mockLinkedCard
             ),
             Saving(
@@ -47,7 +47,7 @@ class SavingsRepositoryMock(
                 title = "Buy Mini Vespa",
                 description = "Mini Vespa Scooter 6v",
                 completedPercentage = 1f,
-                iconUrl = getMockImageUrl( "ic_scooter"),
+                iconUrl = getMockImageUrl("ic_scooter"),
                 linkedCardId = mockLinkedCard
             ),
             Saving(
@@ -55,9 +55,9 @@ class SavingsRepositoryMock(
                 title = "Buy Barbie Doll",
                 description = "One Set Purple",
                 completedPercentage = 1f,
-                iconUrl = getMockImageUrl( "ic_doll"),
+                iconUrl = getMockImageUrl("ic_doll"),
                 linkedCardId = null
-            ),
+            )
         )
     }
 

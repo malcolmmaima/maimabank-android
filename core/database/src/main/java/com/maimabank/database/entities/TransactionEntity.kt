@@ -18,5 +18,5 @@ data class TransactionEntity(
     val cardId: String,
     val linkedContactId: Long? = null,
     val createdDate: Long,
-    val updatedStatusDate: Long,
+    val updatedStatusDate: Long
 )

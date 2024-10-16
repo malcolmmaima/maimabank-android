@@ -31,8 +31,7 @@ class CardsRepositoryMock(
 
             val entity = mapAddCardPayloadToCache(data)
             cardsDao.addCard(entity)
-        }
-        else {
+        } else {
             throw AppError(ErrorType.CARD_ALREADY_ADDED)
         }
     }
@@ -80,7 +79,7 @@ class CardsRepositoryMock(
 
     override suspend fun markCardAsPrimary(cardId: String, isPrimary: Boolean) {
         when (isPrimary) {
-            true ->  cardsDao.markCardAsPrimary(cardId)
+            true -> cardsDao.markCardAsPrimary(cardId)
             false -> cardsDao.unmarkCardAsPrimary(cardId)
         }
     }

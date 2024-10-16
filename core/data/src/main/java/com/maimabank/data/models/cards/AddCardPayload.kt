@@ -6,5 +6,5 @@ data class AddCardPayload(
     val addressFirstLine: String,
     val addressSecondLine: String,
     val cvvCode: String,
-    val expirationDate: Long,
+    val expirationDate: Long
 )

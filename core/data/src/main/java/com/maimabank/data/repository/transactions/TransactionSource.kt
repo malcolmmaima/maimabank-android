@@ -9,7 +9,7 @@ import com.maimabank.database.entities.TransactionEntity
 class TransactionSource(
     // Add more advanced filters / sorting if necessary
     private val transactionDao: TransactionDao,
-    private val filterByType: TransactionType?,
+    private val filterByType: TransactionType?
 ) : PagingSource<Int, TransactionEntity>() {
     override fun getRefreshKey(state: PagingState<Int, TransactionEntity>): Int? {
         return state.anchorPosition
@@ -29,7 +29,6 @@ class TransactionSource(
                 prevKey = if (currentPage == 1) null else currentPage - 1,
                 nextKey = if (transactions.size < params.loadSize) null else currentPage + 1
             )
-
         } catch (e: Exception) {
             return LoadResult.Error(e)
         }
@@ -37,7 +36,7 @@ class TransactionSource(
 
     private suspend fun loadFromDbCache(
         filterByType: TransactionType?,
-        params: LoadParams<Int>,
+        params: LoadParams<Int>
     ): List<TransactionEntity> {
         val currentPage = params.key ?: 1
         val startPosition = (currentPage - 1) * params.loadSize

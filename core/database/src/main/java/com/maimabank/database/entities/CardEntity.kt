@@ -16,7 +16,7 @@ data class CardEntity(
     val expiration: Long,
     val addressFirstLine: String,
     val addressSecondLine: String,
-    val addedDate: Long,
+    val addedDate: Long
 ) {
     enum class CacheCardType {
         DEBIT,
