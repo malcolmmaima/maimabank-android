@@ -2,7 +2,6 @@ package com.maimabank.data.repository.cards
 
 import com.maimabank.common.models.accounts.MoneyAmount
 import com.maimabank.data.models.cards.AddCardPayload
-import com.maimabank.data.models.cards.CardType
 import com.maimabank.data.models.cards.PaymentCard
 import com.maimabank.database.dao.CardsDao
 import com.maimabank.database.entities.CardEntity
@@ -54,11 +53,11 @@ class CardsRepositoryMock(
         expiration = cardEntity.expiration,
         addedDate = cardEntity.addedDate,
         recentBalance = MoneyAmount(cardEntity.recentBalance),
-        cardType = cardEntity.cardType
+        cacheCardType = cardEntity.cacheCardType
     )
 
     private fun mapAddCardPayloadToCache(addCardPayload: AddCardPayload): CardEntity {
-        val type = MockCardConstants.cardTypeByNumber(addCardPayload.cardNumber) ?: CardEntity.CardType.DEBIT
+        val type = MockCardConstants.cardTypeByNumber(addCardPayload.cardNumber) ?: CardEntity.CacheCardType.DEBIT
 
         return CardEntity(
             number = addCardPayload.cardNumber,
@@ -69,7 +68,7 @@ class CardsRepositoryMock(
             expiration = addCardPayload.expirationDate,
             addedDate = System.currentTimeMillis(),
             recentBalance = MOCK_CARD_INITIAL_BALANCE,
-            cardType = type
+            cacheCardType = type
         )
     }
 

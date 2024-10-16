@@ -1,5 +1,4 @@
 plugins {
-    //id("maimabank.app")
     id("maimabank.library")
     id("maimabank.library.network")
 }

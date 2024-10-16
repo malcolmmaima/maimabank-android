@@ -12,12 +12,15 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
 
             }
 
-
             dependencies {
-                add("implementation", (libs.findLibrary("hilt.android").get()))
-                add("implementation", (libs.findLibrary("hilt.navigation.compose").get()))
-                add("ksp", (libs.findLibrary("hilt.ksp").get()))
+                val bom = libs.findLibrary("compose-bom").get()
+                add("implementation", platform(bom))
+
+                add("implementation", libs.findLibrary("hilt.android").get())
+                add("implementation", libs.findLibrary("hilt.navigation.compose").get())
+                add("ksp", libs.findLibrary("hilt.ksp").get())
             }
+
         }
     }
 

@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.maimabank.database.entities.TransactionEntity
 import com.maimabank.common.models.transactions.TransactionType
+import com.maimabank.database.entities.TransactionEntity
 
 @Dao
 interface TransactionDao {

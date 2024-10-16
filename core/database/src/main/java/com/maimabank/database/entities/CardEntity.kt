@@ -10,7 +10,7 @@ data class CardEntity(
     @PrimaryKey(autoGenerate = false)
     val number: String,
     val isPrimary: Boolean,
-    val cardType: CardType,
+    val cacheCardType: CacheCardType,
     val recentBalance: Float,
     val cardHolder: String,
     val expiration: Long,
@@ -18,7 +18,7 @@ data class CardEntity(
     val addressSecondLine: String,
     val addedDate: Long,
 ) {
-    enum class CardType {
+    enum class CacheCardType {
         DEBIT,
         CREDIT
     }

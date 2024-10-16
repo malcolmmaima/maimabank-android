@@ -7,7 +7,7 @@ data class PaymentCard(
     val cardId: String,
     val isPrimary: Boolean,
     val cardNumber: String,
-    val cardType: CardEntity.CardType,
+    val cacheCardType: CardEntity.CacheCardType,
     val cardHolder: String,
     val expiration: Long,
     val recentBalance: MoneyAmount,
