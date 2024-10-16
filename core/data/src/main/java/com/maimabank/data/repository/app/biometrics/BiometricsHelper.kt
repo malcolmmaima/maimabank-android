@@ -30,7 +30,9 @@ object BiometricsHelper {
                     onError.invoke(activity.getString(RR.string.error_template, errString))
                 }
 
-                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                override fun onAuthenticationSucceeded(
+                    result: BiometricPrompt.AuthenticationResult
+                ) {
                     super.onAuthenticationSucceeded(result)
                     onSuccess.invoke()
                 }
