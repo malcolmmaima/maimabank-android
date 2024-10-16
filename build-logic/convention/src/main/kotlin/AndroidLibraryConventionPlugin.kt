@@ -46,6 +46,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 add("testImplementation", kotlin("test"))
                 add("implementation", (libs.findLibrary("timber").get()))
                 add("implementation", (libs.findLibrary("material").get()))
+                add("implementation", (libs.findLibrary("androidx.biometric").get()))
             }
         }
     }

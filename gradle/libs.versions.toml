@@ -1,5 +1,6 @@
 [versions]
 agp = "8.1.1"
+androidSecurityVersion = "1.1.0-alpha06"
 coil = "2.4.0"
 kotlin = "1.9.0"
 kotlin-coroutines = "1.7.3"
@@ -12,6 +13,7 @@ compose-bom = "2023.09.00"
 compose-lifecycle = "2.7.0-alpha03"
 hilt = "2.48"
 ksp = "1.9.0-1.0.13"
+ksPrefsVersion = "2.4.0"
 androidxComposeCompiler = "1.5.0"
 retrofit = "2.9.0"
 room = "2.5.2"
@@ -23,7 +25,7 @@ koin_version = "3.4.3"
 nav_version = "2.7.3"
 work_version = "2.8.1"
 paging_version = "3.2.1"
-
+biometricVersion = "1.2.0-alpha05"
 androidx-test-espresso-espresso-core = "3.5.1"
 timber = "5.0.1"
 appcompat = "1.6.1"
@@ -34,6 +36,9 @@ lottieVersion = "6.4.0"
 serializationJsonVersion = "1.7.1"
 material3Android = "1.2.1"
 androidArchCoreTesting = "1.1.1"
+workRuntimeKtx = "2.9.1"
+pagingCommonAndroid = "3.3.2"
+firebaseDataconnect = "16.0.0-beta01"
 
 [libraries]
 accompanist-ui-controller = { module = "com.google.accompanist:accompanist-systemuicontroller", version = "0.31.5-beta" }
@@ -69,6 +74,7 @@ compose-destinations-ksp = { group = "io.github.raamcosta.compose-destinations",
 
 compose-destinations-core = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "composeDestinationsVersion" }
 
+ksprefs = { group = "com.github.cioccarellia", name = "ksprefs", version.ref = "ksPrefsVersion"}
 kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
 
 moshi = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
@@ -113,7 +119,12 @@ material = { group = "com.google.android.material", name = "material", version.r
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJsonVersion" }
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 android-test-core = { group = "android.arch.core", name = "core-testing", version.ref = "androidArchCoreTesting" }
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workRuntimeKtx" }
+androidx-paging-common-android = { group = "androidx.paging", name = "paging-common-android", version.ref = "pagingCommonAndroid" }
 
+androidx-security = { group = "androidx.security", name = "security-crypto", version.ref = "androidSecurityVersion"}
+androidx-biometric = { group = "androidx.biometric", name = "biometric-ktx", version.ref = "biometricVersion"}
+firebase-dataconnect = { group = "com.google.firebase", name = "firebase-dataconnect", version.ref = "firebaseDataconnect" }
 [bundles]
 compose = ["compose-foundation", "compose-foundation-layout", "compose-iconsExtended", "compose-material-windowSizeClass", "compose-runtime", "compose-ui-util", "compose-coil", "activity-compose", "compose-navigation", "compose-lifecycle","lottie-compose", "compose-material"]
 

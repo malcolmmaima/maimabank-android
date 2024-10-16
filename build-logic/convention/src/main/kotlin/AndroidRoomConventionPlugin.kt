@@ -13,6 +13,7 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("room.runtime").get())
                 add("implementation", libs.findLibrary("room.ktx").get())
                 add("ksp", libs.findLibrary("room.compiler").get())
+                add("implementation", libs.findLibrary("androidx.work.runtime.ktx").get())
             }
         }
     }

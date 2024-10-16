@@ -17,6 +17,10 @@ internal fun Project.configureNetworking(
             add("implementation", (libs.findLibrary("okhttp.logging").get()))
             add("ksp", (libs.findLibrary("moshi.codegen").get()))
             add("implementation", (libs.findLibrary("kotlinx.serialization.json").get()))
+            add("implementation", (libs.findLibrary("androidx.paging.common.android").get()))
+            add("implementation", (libs.findLibrary("androidx.work.runtime.ktx").get()))
+            add("implementation", (libs.findLibrary("ksprefs").get()))
+            add("implementation", (libs.findLibrary("androidx.security").get()))
         }
     }
 }

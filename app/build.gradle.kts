@@ -10,6 +10,7 @@ plugins {
 
 android {
     namespace = "com.maimabank"
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.maimabank"
@@ -50,4 +51,9 @@ android {
 dependencies {
     implementation(project(":core:design"))
     implementation(project(":core:utils"))
+    implementation(project(":core:networking"))
+    implementation(project(":features:accounts"))
+    implementation(project(":core:common"))
+    implementation(project(":core:data"))
+    implementation(project(":core:database"))
 }

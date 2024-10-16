@@ -9,5 +9,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:networking"))
+    implementation(project(":core:common"))
 }
