@@ -56,7 +56,9 @@ class CardsRepositoryMock(
     )
 
     private fun mapAddCardPayloadToCache(addCardPayload: AddCardPayload): CardEntity {
-        val type = MockCardConstants.cardTypeByNumber(addCardPayload.cardNumber) ?: CardEntity.CacheCardType.DEBIT
+        val type = MockCardConstants.cardTypeByNumber(
+            addCardPayload.cardNumber
+        ) ?: CardEntity.CacheCardType.DEBIT
 
         return CardEntity(
             number = addCardPayload.cardNumber,

@@ -12,14 +12,19 @@ import kotlinx.coroutines.withContext
 class OtpRepositoryMock(
     private val coroutineDispatcher: CoroutineDispatcher
 ) : OtpRepository {
-    override suspend fun requestGenerateOtpCode(otpConfiguration: OtpConfiguration): OtpGenerationResponse =
+    override suspend fun requestGenerateOtpCode(
+        otpConfiguration: OtpConfiguration
+    ): OtpGenerationResponse =
         withContext(coroutineDispatcher) {
             return@withContext OtpGenerationResponse(
                 remainingAttempts = 3
             )
         }
 
-    override suspend fun verifyOtpCode(otpConfiguration: OtpConfiguration, code: String): OtpVerificationResponse =
+    override suspend fun verifyOtpCode(
+        otpConfiguration: OtpConfiguration,
+        code: String
+    ): OtpVerificationResponse =
         withContext(coroutineDispatcher) {
             delay(MOCK_DELAY)
 

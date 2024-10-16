@@ -18,7 +18,9 @@ class SignUpRepositoryMock(
     private val otpRepository: OtpRepository,
     private val prefs: KsPrefs
 ) : SignUpRepository {
-    override suspend fun signUpWithEmail(payload: SignUpPayload) = withContext(coroutineDispatcher) {
+    override suspend fun signUpWithEmail(
+        payload: SignUpPayload
+    ) = withContext(coroutineDispatcher) {
         delay(MOCK_DELAY)
 
         if (payload.email == MOCK_LOGIN_EMAIL && payload.password == MOCK_PASSWORD) {
